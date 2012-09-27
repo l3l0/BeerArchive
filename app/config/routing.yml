@@ -1,3 +1,8 @@
+l3l0_beer_archive:
+    resource: "@L3l0BeerArchiveBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 #_internal:
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
