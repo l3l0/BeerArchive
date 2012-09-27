@@ -21,7 +21,7 @@ use Behat\Gherkin\Node\PyStringNode,
 /**
  * Feature context.
  */
-class FeatureContext extends BehatContext //MinkContext if you want to test web
+class FeatureContext extends MinkContext
                   implements KernelAwareInterface
 {
     private $kernel;
@@ -60,4 +60,102 @@ class FeatureContext extends BehatContext //MinkContext if you want to test web
 //        $container->get('some_service')->doSomethingWith($argument);
 //    }
 //
+
+    /**
+     * @Given /^I am guest$/
+     */
+    public function iAmGuest()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^"([^"]*)" user exists$/
+     */
+    public function userExists($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I am at login page$/
+     */
+    public function iAmAtLoginPage()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then /^I should be logged in$/
+     */
+    public function iShouldBeLoggedIn()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I should be able to mark beer$/
+     */
+    public function iShouldBeAbleToMarkBeer()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I should be able to add new beer$/
+     */
+    public function iShouldBeAbleToAddNewBeer()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then /^I should not be logged in$/
+     */
+    public function iShouldNotBeLoggedIn()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I should not be able to mark beer$/
+     */
+    public function iShouldNotBeAbleToMarkBeer()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^there are beers such as:$/
+     */
+    public function thereAreBeersSuchAs(TableNode $table)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I am on the beer list page$/
+     */
+    public function iAmOnTheBeerListPage()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^I should see "([^"]*)" at (\d+)nd position$/
+     * @Given /^I should see "([^"]*)" at (\d+)rd position$/
+     * @Then /^I should see "([^"]*)" at (\d+)st position$/
+     */
+    public function iShouldSeeAtNdPosition($arg1, $arg2)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Given /^there is not any beer$/
+     */
+    public function thereIsNotAnyBeer()
+    {
+        throw new PendingException();
+    }
 }
