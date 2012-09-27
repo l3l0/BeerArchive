@@ -3,6 +3,7 @@
 namespace L3l0\BeerArchiveBundle\Features\Context;
 
 use Symfony\Component\HttpKernel\KernelInterface;
+use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Behat\MinkExtension\Context\MinkContext;
 
@@ -66,16 +67,10 @@ class FeatureContext extends MinkContext
      */
     public function iAmGuest()
     {
-        throw new PendingException();
+
     }
 
-    /**
-     * @Given /^"([^"]*)" user exists$/
-     */
-    public function userExists($arg1)
-    {
-        throw new PendingException();
-    }
+
 
     /**
      * @Given /^I am at login page$/
@@ -157,5 +152,20 @@ class FeatureContext extends MinkContext
     public function thereIsNotAnyBeer()
     {
         throw new PendingException();
+    }
+
+
+    /**
+     * @BeforeScenario
+     */
+    public function clearDatabase()
+    {
+        $purger = new ORMPurger($this->getEntityManager());
+        $purger->purge();
+    }
+
+    protected function getEntityManager()
+    {
+        return $this->kernel->getContainer()->get('doctrine')->getManager();
     }
 }
