@@ -36,6 +36,7 @@ class FeatureContext extends MinkContext
     public function __construct(array $parameters)
     {
         $this->parameters = $parameters;
+        $this->useContext('user', new UserContext());
     }
 
     /**
@@ -62,23 +63,6 @@ class FeatureContext extends MinkContext
 //    }
 //
 
-    /**
-     * @Given /^I am guest$/
-     */
-    public function iAmGuest()
-    {
-
-    }
-
-
-
-    /**
-     * @Given /^I am at login page$/
-     */
-    public function iAmAtLoginPage()
-    {
-        throw new PendingException();
-    }
 
     /**
      * @Then /^I should be logged in$/

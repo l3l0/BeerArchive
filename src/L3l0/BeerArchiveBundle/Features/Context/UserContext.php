@@ -28,18 +28,11 @@ class UserContext extends BehatContext implements MinkAwareInterface,
                                                   KernelAwareInterface
 {
     private $kernel;
+    /**
+     * @var Mink
+     */
     private $mink;
     private $parameters;
-
-    /**
-     * Initializes context with parameters from behat.yml.
-     *
-     * @param array $parameters
-     */
-    public function __construct(array $parameters)
-    {
-        $this->parameters = $parameters;
-    }
 
     /**
      * Sets HttpKernel instance.
@@ -62,13 +55,28 @@ class UserContext extends BehatContext implements MinkAwareInterface,
         $this->parameters = $parameters;
     }
 
-
     /**
-     * @Given /^"([^"]*)" user exists$/
+     * @Given /^I am guest$/
      */
-    public function userExists($arg1)
+    public function iAmGuest()
     {
-        throw new PendingException();
     }
 
+    /**
+     * @Given /^user with email "leszek.prabucki@gmail.com" exists$/
+     */
+    public function userWithEmailExists()
+    {
+    }
+
+    /**
+     * @Given /^I am at login page$/
+     */
+    public function iAmAtLoginPage()
+    {
+        $url = $this->kernel->getContainer()->get('router')->generate('login');
+
+        $this->mink->getSession()->visit($url);
+        $this->mink->assertSession()->statusCodeEquals(200);
+    }
 }

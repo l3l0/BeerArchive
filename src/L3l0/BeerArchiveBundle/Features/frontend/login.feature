@@ -4,11 +4,11 @@ Feature: As a guest
 
   Background:
     Given I am guest
-    And "leszek" user exists
+    And user with email "leszek.prabucki@gmail.com" exists
 
   Scenario: Successful form login
     Given I am at login page
-    When I fill in "Email" with "leszek@example.com"
+    When I fill in "Email" with "leszek.prabucki@gmail.com"
     And I fill in "Password" with "password"
     Then I should be logged in
     And I should be able to mark beer
